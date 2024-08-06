@@ -41,28 +41,28 @@ internal class AcademyContext : DbContext
             .ToTable(x => x.HasCheckConstraint("CK_Group_Year", "Year >= 1 AND Year <= 4"));
         #endregion
 
-        //    #region Department
-        //    modelBuilder.Entity<Department>()
-        //        .Property(x => x.DepartmentId)
-        //        .HasColumnName("Id")
-        //        .ValueGeneratedOnAdd();
+        #region Department
+        modelBuilder.Entity<Department>()
+            .Property(x => x.DepartmentId)
+            .HasColumnName("Id")
+            .ValueGeneratedOnAdd();
 
-        //    modelBuilder.Entity<Department>()
-        //.Property(x => x.Name)
-        //.IsRequired()
-        //.HasMaxLength(100);
+        modelBuilder.Entity<Department>()
+    .Property(x => x.Name)
+    .IsRequired()
+    .HasMaxLength(100);
 
 
-        //    modelBuilder.Entity<Department>()
-        //.Property(x => x.Financing)
-        //.HasColumnType("money")
-        //.HasDefaultValue(0);
+        modelBuilder.Entity<Department>()
+    .Property(x => x.Financing)
+    .HasColumnType("money")
+    .HasDefaultValue(0);
 
-        //    modelBuilder.Entity<Department>()
-        //      .ToTable(x => x.HasCheckConstraint("CK_Department_Financing", "Financing >= 0"));
-        //    #endregion
+        modelBuilder.Entity<Department>()
+          .ToTable(x => x.HasCheckConstraint("CK_Department_Financing", "Financing >= 0"));
+        #endregion
 
-        //    #region Facultie
+        #region Facultie
         modelBuilder.Entity<Facultie>()
             .HasKey(x => x.FacultyId);
 
@@ -71,11 +71,11 @@ internal class AcademyContext : DbContext
     .HasColumnName("Id")
     .ValueGeneratedOnAdd();
 
-        //    modelBuilder.Entity<Facultie>()
-        //        .Property(x => x.Name)
-        //        .IsRequired()
-        //        .HasMaxLength(100);
-        //#endregion
+        modelBuilder.Entity<Facultie>()
+            .Property(x => x.Name)
+            .IsRequired()
+            .HasMaxLength(100);
+        #endregion
 
         #region Teacher
 
@@ -121,24 +121,24 @@ internal class AcademyContext : DbContext
       .ToTable(x => x.HasCheckConstraint("CK_Teacher_Salary", "Salary >= 0"));
         #endregion
 
-        //    #region Student
+        #region Student
 
-        //    modelBuilder.Entity<Student>()
-        //        .Property(x => x.StudentId)
-        //        .HasColumnName("Id")
-        //        .ValueGeneratedOnAdd();
+        modelBuilder.Entity<Student>()
+            .Property(x => x.StudentId)
+            .HasColumnName("Id")
+            .ValueGeneratedOnAdd();
 
-        //    modelBuilder.Entity<Student>()
-        //.Property(x => x.FirstName)
-        //.HasColumnName("Name")
-        //.IsRequired()
-        //.HasMaxLength(int.MaxValue);
+        modelBuilder.Entity<Student>()
+    .Property(x => x.FirstName)
+    .HasColumnName("Name")
+    .IsRequired()
+    .HasMaxLength(int.MaxValue);
 
-        //    modelBuilder.Entity<Student>()
-        //.Property(x => x.LastName)
-        //.HasColumnName("Surname")
-        //.IsRequired()
-        //.HasMaxLength(int.MaxValue);
-        //    #endregion
+        modelBuilder.Entity<Student>()
+    .Property(x => x.LastName)
+    .HasColumnName("Surname")
+    .IsRequired()
+    .HasMaxLength(int.MaxValue);
+        #endregion
     }
 }
